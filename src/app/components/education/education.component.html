@@ -1,0 +1,13 @@
+<section id="educacion" class="seccion flex flex-col items-start gap-8">
+  <p class="text-5xl font-bold text-azulNeon ml-8 mb-8">EDUCACIÓN</p>
+  <div class="relative border-l-4 border-grisMetal pl-6 space-y-8 mt-[50px]">
+      <div *ngFor="let item of education" class="relative">
+        <div class="absolute w-4 h-4 bg-grisMetal rounded-full left-[-10px] top-2"></div>
+        <div>
+          <h3 class="text-xl font-semibold text-white">- {{ item.title }}</h3>
+          <p class="text-neon text-sm mb-1"> {{ item.institution }} — {{ item.year }}</p>
+          <p class="text-gray-300"> {{ item.description }}</p>
+        </div>
+      </div>
+  </div>
+</section>

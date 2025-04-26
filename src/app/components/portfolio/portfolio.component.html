@@ -1,0 +1,60 @@
+<section id="portafolio" class="seccion flex flex-col items-start gap-8">
+    <p class="text-5xl font-bold text-azulNeon ml-8 mb-8">PORTAFOLIO</p>
+  
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+      <!-- Card 1 -->
+      <div class="border border-azulNeon rounded-lg p-4 flex flex-col items-center bg-[#0f0f1a]">
+        <img src="assets/img/proyecto1.png" alt="Proyecto 1" class="rounded-lg mb-4 object-cover w-full h-64">
+        <p class="text-2xl font-bold text-azulNeon">StarRouting</p>
+        <p class="text-white text-center mt-2">Aplicación web y movil desarrollada durante el transcurso de mis estudios en Tecnologia en Analisis y Desarrollo de Software.</p>
+
+        <!--Iconos-->
+        <div class="flex gap-2 mt-4">
+          <img src="assets/icons/angular.svg" class="w-6" alt="ANGULAR">
+          <img src="assets/icons/ionic.svg" class="w-6" alt="IONIC">
+          <img src="assets/icons/node.svg" class="w-6" alt="NODE">
+        </div>
+
+        <div class="flex gap-6 mt-8">
+          <!--Boton del link de la pagina-->
+          <a href="https://star-routing.netlify.app/landing-page" target="_blank" class="bg-white rounded-full p-3 flex items-center justify-center hover:shadow-lg hover:shadow-azulNeon transition duration-300"><img src="assets/icons/link.png" alt="Lin" class="w-10 h-10"></a>
+          <!--Boton del github-->
+          <button (click)="botonesOcultos(0)" target="_blank" class="bg-white rounded-full p-3 flex items-center justify-center hover:shadow-lg hover:shadow-azulNeon transition duration-300"><img src="assets/icons/github.gif" alt="GitHub" class="w-10 h-10"></button>
+        </div>
+
+        <!-- Botones ocultos -->
+        <div *ngIf="activeIndex === 0" class="flex flex-col items-center gap-2 mt-4 github-options">
+          <a href="https://github.com/Miltrus/proyecto" target="_blank" class="bg-azulNeon text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">Frontend</a>
+          <a href="https://github.com/SantiRuaA/api" target="_blank" class="bg-azulNeon text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">Backend</a>
+          <a href="https://github.com/Miltrus/Movil" target="_blank" class="bg-azulNeon text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">Movil</a>
+        </div>
+
+      </div>
+      <!-- Card 2 -->
+      <div class="border border-azulNeon rounded-lg p-4 flex flex-col items-center bg-[#0f0f1a]">
+        <img src="assets/img/proyecto2.png" alt="Proyecto 2" class="rounded-lg mb-4 object-cover w-full h-64">
+        <p class="text-2xl font-bold text-azulNeon">SRA</p>
+        <p class="text-white text-center mt-2">Aplicación web desarrollada durante el transcurso de mis practicas profesionales.</p>
+
+        <!--Iconos-->
+        <div class="flex gap-2 mt-4">
+          <img src="assets/icons/angular.svg" class="w-6" alt="ANGULAR">
+          <img src="assets/icons/node.svg" class="w-6" alt="NODE">
+        </div>
+
+        <!--Boton del github-->
+        <div class="flex gap-6 mt-8">
+          <button (click)="botonesOcultos(1)" target="_blank" class="bg-white rounded-full p-3 flex items-center justify-center hover:shadow-lg hover:shadow-azulNeon transition duration-300"><img src="assets/icons/github.gif" alt="GitHub" class="w-10 h-10"></button>
+        </div>
+
+        <!-- Botones ocultos -->
+        <div *ngIf="activeIndex === 1" class="flex flex-col items-center gap-2 mt-4 github-options">
+          <a href="https://github.com/SantiRuaA/SRA" target="_blank" class="bg-azulNeon text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">Frontend</a>
+          <a href="hhttps://github.com/SantiRuaA/SRA_back" target="_blank" class="bg-azulNeon text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">Backend</a>
+        </div>
+
+
+      </div>
+      <!-- Card 3 -->
+    </div>
+  </section>

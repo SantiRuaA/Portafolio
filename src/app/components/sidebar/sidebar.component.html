@@ -1,0 +1,19 @@
+<aside class="h-screen w-64 bg-[#1a1a2e] flex flex-col items-center py-8 justify-center mt-10">
+  <div class="flex flex-col items-center mb-32">
+      <img src="assets/img/avatar.png" alt="Avatar" class="w-30 h-30 " />
+    
+
+    <nav class="flex flex-col gap-6 text-center text-azulNeon text-lg">
+      <a *ngFor="let link of links"
+        [href]=""
+        (click)="scrollTo(link.path, $event)"
+        class="cursor-pointer transition-all duration-300 hover:scale-110 hover:text-verdeNeon">
+        {{ link.label }}
+      </a>
+    </nav>
+  </div>
+
+  <div class="text-azulNeon text-xs mb-4">
+    © 2025 Santiago Rua
+  </div>
+</aside>
