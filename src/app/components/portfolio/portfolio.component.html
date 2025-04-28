@@ -1,60 +1,63 @@
 <section id="portafolio" class="seccion flex flex-col items-start gap-8">
-    <p class="text-5xl font-bold text-azulNeon ml-8 mb-8">PORTAFOLIO</p>
-  
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-      <!-- Card 1 -->
-      <div class="border border-azulNeon rounded-lg p-4 flex flex-col items-center bg-[#0f0f1a]">
-        <img src="assets/img/proyecto1.png" alt="Proyecto 1" class="rounded-lg mb-4 object-cover w-full h-64">
-        <p class="text-2xl font-bold text-azulNeon">StarRouting</p>
-        <p class="text-white text-center mt-2">Aplicación web y movil desarrollada durante el transcurso de mis estudios en Tecnologia en Analisis y Desarrollo de Software.</p>
+  <p class="text-5xl font-bold text-azulNeon ml-8 mb-8">PORTAFOLIO</p>
 
-        <!--Iconos-->
-        <div class="flex gap-2 mt-4">
-          <img src="assets/icons/angular.svg" class="w-6" alt="ANGULAR">
-          <img src="assets/icons/ionic.svg" class="w-6" alt="IONIC">
-          <img src="assets/icons/node.svg" class="w-6" alt="NODE">
-        </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
 
-        <div class="flex gap-6 mt-8">
-          <!--Boton del link de la pagina-->
-          <a href="https://star-routing.netlify.app/landing-page" target="_blank" class="bg-white rounded-full p-3 flex items-center justify-center hover:shadow-lg hover:shadow-azulNeon transition duration-300"><img src="assets/icons/link.png" alt="Lin" class="w-10 h-10"></a>
-          <!--Boton del github-->
-          <button (click)="botonesOcultos(0)" target="_blank" class="bg-white rounded-full p-3 flex items-center justify-center hover:shadow-lg hover:shadow-azulNeon transition duration-300"><img src="assets/icons/github.gif" alt="GitHub" class="w-10 h-10"></button>
-        </div>
+    <div *ngFor="let proyecto of proyectos; let i = index" class="border border-azulNeon rounded-lg p-4 flex flex-col items-center bg-[#0f0f1a]">
+      
+      <!-- Imagen clickeable para abrir carrusel -->
+      <img (click)="abrirCarrusel(proyecto)" [src]="proyecto.imagen" alt="{{ proyecto.nombre }}" class="rounded-lg mb-4 object-cover w-full h-64 cursor-pointer hover:scale-105 transition">
 
-        <!-- Botones ocultos -->
-        <div *ngIf="activeIndex === 0" class="flex flex-col items-center gap-2 mt-4 github-options">
-          <a href="https://github.com/Miltrus/proyecto" target="_blank" class="bg-azulNeon text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">Frontend</a>
-          <a href="https://github.com/SantiRuaA/api" target="_blank" class="bg-azulNeon text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">Backend</a>
-          <a href="https://github.com/Miltrus/Movil" target="_blank" class="bg-azulNeon text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">Movil</a>
-        </div>
+      <p class="text-2xl font-bold text-azulNeon">{{ proyecto.nombre }}</p>
+      <p class="text-white text-center mt-2">{{ proyecto.descripcion }}</p>
 
+      <!-- Iconos de tecnologías -->
+      <div class="flex gap-2 mt-4">
+        <img *ngFor="let tecnologia of proyecto.tecnologias" [src]="'assets/icons/' + tecnologia.toLowerCase() + '.svg'" class="w-6" [alt]="tecnologia">
       </div>
-      <!-- Card 2 -->
-      <div class="border border-azulNeon rounded-lg p-4 flex flex-col items-center bg-[#0f0f1a]">
-        <img src="assets/img/proyecto2.png" alt="Proyecto 2" class="rounded-lg mb-4 object-cover w-full h-64">
-        <p class="text-2xl font-bold text-azulNeon">SRA</p>
-        <p class="text-white text-center mt-2">Aplicación web desarrollada durante el transcurso de mis practicas profesionales.</p>
 
-        <!--Iconos-->
-        <div class="flex gap-2 mt-4">
-          <img src="assets/icons/angular.svg" class="w-6" alt="ANGULAR">
-          <img src="assets/icons/node.svg" class="w-6" alt="NODE">
-        </div>
+      <!-- Botones -->
+      <div class="flex gap-6 mt-8">
+        <a *ngIf="proyecto.linkPagina" [href]="proyecto.linkPagina" target="_blank" 
+          class="bg-white rounded-full p-3 flex items-center justify-center hover:shadow-lg hover:shadow-azulNeon transition duration-300">
+          <img src="assets/icons/link.png" alt="Link" class="w-10 h-10">
+        </a>
 
-        <!--Boton del github-->
-        <div class="flex gap-6 mt-8">
-          <button (click)="botonesOcultos(1)" target="_blank" class="bg-white rounded-full p-3 flex items-center justify-center hover:shadow-lg hover:shadow-azulNeon transition duration-300"><img src="assets/icons/github.gif" alt="GitHub" class="w-10 h-10"></button>
-        </div>
-
-        <!-- Botones ocultos -->
-        <div *ngIf="activeIndex === 1" class="flex flex-col items-center gap-2 mt-4 github-options">
-          <a href="https://github.com/SantiRuaA/SRA" target="_blank" class="bg-azulNeon text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">Frontend</a>
-          <a href="hhttps://github.com/SantiRuaA/SRA_back" target="_blank" class="bg-azulNeon text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">Backend</a>
-        </div>
-
-
+        <!-- Botón GitHub para abrir opciones -->
+        <button (click)="toggleGithubOptions(i)" class="bg-white rounded-full p-3 flex items-center justify-center hover:shadow-lg hover:shadow-azulNeon transition duration-300">
+          <img src="assets/icons/github.gif" alt="GitHub" class="w-10 h-10">
+        </button>
       </div>
-      <!-- Card 3 -->
+
+      <!-- Botones ocultos de repositorios -->
+      <div *ngIf="activeIndex === i" class="flex flex-col items-center gap-2 mt-4">
+        <a *ngFor="let link of proyecto.links" [href]="link.url" target="_blank" class="bg-azulNeon text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition flex items-center gap-2">
+          <span>{{ link.tipo }}</span>
+          
+        </a>
+      </div>
+
     </div>
-  </section>
+
+  </div>
+
+  <!-- Modal del carrusel -->
+  <div *ngIf="carruselAbierto" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
+    <div class="bg-[#0f0f1a] rounded-lg p-6 relative max-w-3xl w-full flex flex-col items-center">
+      
+      <!-- Botón cerrar -->
+      <button (click)="cerrarCarrusel()" class="absolute top-4 right-8 text-black text-3xl">&times;</button>
+
+      <!-- Imagen actual -->
+      <img [src]="imagenesCarrusel[imagenActual]" alt="Imagen Proyecto" class="w-full max-h-[70vh] object-contain mb-4">
+
+      <!-- Controles -->
+      <div class="flex justify-between w-full">
+        <button (click)="anteriorImagen()" class="text-white bg-azulNeon p-2 rounded-full hover:bg-blue-700">&larr;</button>
+        <button (click)="siguienteImagen()" class="text-white bg-azulNeon p-2 rounded-full hover:bg-blue-700">&rarr;</button>
+      </div>
+
+    </div>
+  </div>
+
+</section>
