@@ -17,3 +17,4 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTAFOLIO_SR }}
           channelId: live
           projectId: portafolio-sr
+          build_command: 'npm ci && npm run build'
