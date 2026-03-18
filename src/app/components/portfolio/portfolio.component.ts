@@ -15,7 +15,7 @@ export class PortfolioComponent {
   proyectos = [
     {
       nombre: 'StarRouting',
-      descripcion: 'Aplicación web y movil desarrollada durante el transcurso de mis estudios a un cliente real en Tecnologia en Analisis y Desarrollo de Software.',
+      descripcion: 'Aplicación web y movil desarrollada importante empresa de envios en la ciudad de medellin, ayudando a planificar rutas de envio y asegurar la entrega segura de productos.',
       imagen: 'assets/img/starrouting1.png',
       tecnologias: ['angular', 'ionic', 'node'],
       linkPagina: 'https://star-routing.netlify.app/landing-page',
@@ -30,7 +30,7 @@ export class PortfolioComponent {
     },
     {
       nombre: 'SRA',
-      descripcion: 'Aplicación web desarrollada durante el transcurso de mis practicas profesionales.',
+      descripcion: 'Aplicación web desarrollada para ser usada como organizardor de horarios para los profesores del SENA asegurando que todos los instructores tengan asignadas las horas y clases correctas.',
       imagen: 'assets/img/sra1.png',
       tecnologias: ['angular', 'node'],
       links: [
@@ -42,6 +42,27 @@ export class PortfolioComponent {
         'assets/img/sra2.png',
         'assets/img/sra3.png',
         'assets/img/sra4.png'
+      ]
+    },
+    {
+      nombre: 'PublicBot',
+      descripcion: 'Aplicacion web desarrollada para contestar preguntas al publico general sobre el SENA',
+      imagen: 'assets/img/publicbot1.png',
+      tecnologias: ['angular'],
+      imagenesCarrusel: [
+        'assets/img/publicbot1.png',
+        'assets/img/publicbot2.png',
+        'assets/img/publicbot3.png'
+      ]
+    },
+    {
+      nombre: 'CertiBot',
+      descripcion: 'Aplicacion web desarrollada para facilitar la creacion de items evaluativos',
+      imagen: 'assets/img/certibot1.png',
+      tecnologias: ['angular'],
+      imagenesCarrusel: [
+        'assets/img/logincertibot.png',
+        'assets/img/certibot1.png'
       ]
     }
   ];
